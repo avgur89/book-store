@@ -7,6 +7,7 @@ const colors = require('colors');
 const connectDB = require('./config/db');
 
 const indexRouter = require('./routes/index');
+const authorsRouter = require('./routes/authors');
 
 // Load environment variables
 dotenv.config({ path: './config/config.env' });
@@ -33,10 +34,11 @@ app.set('layout', 'layouts/layout');
 // Middlewares
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', indexRouter);
+app.use('/authors', authorsRouter);
 
 const server = app.listen(
   PORT,
