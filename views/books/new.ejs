@@ -1,0 +1,90 @@
+<div class="row">
+  <form
+    action="/books"
+    method="POST"
+    class="col-md-8 mx-auto"
+    enctype="multipart/form-data"
+  >
+    <h2>New Book</h2>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          placeholder="Book title"
+          value="<%= book.title %>"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="author">Author</label>
+        <select class="form-control" id="author" name="author">
+          <% authors.forEach(author => { %> <% if (author.id === book.author) {
+          %>
+          <option
+            selected
+            label="<%= author.name %>"
+            value="<%= author.id %>"
+          ></option>
+          <% } else { %>
+          <option label="<%= author.name %>" value="<%= author.id %>"></option>
+          <% } %> <% }) %>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="publishDate">Publich Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="publishDate"
+          name="publishDate"
+          placeholder="mm/dd/yyyy"
+          value="<%= book.publishDate == null ? '' : book.publishDate.toISOString().split('T')[0] %>"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="publishDate">Page Count</label>
+        <input
+          type="number"
+          class="form-control"
+          id="pageCount"
+          name="pageCount"
+          placeholder="Number of pages"
+          min="1"
+          value="<%= book.pageCount %>"
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="input-group col-md-6 mb-3">
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            id="cover"
+            name="cover"
+          />
+          <label class="custom-file-label" for="cover">Choose file</label>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <textarea
+          class="form-control"
+          name="description"
+          placeholder="Add description"
+        >
+<%= book.description %></textarea
+        >
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Create</button>
+    <p><a href="/books">Cancel</a></p>
+  </form>
+</div>

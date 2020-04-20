@@ -1,15 +1,23 @@
-<h2>New Author</h2>
-<form action="/authors" method="POST">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="name"
-      name="name"
-      placeholder="Enter author name"
-    />
-  </div>
-  <button type="submit" class="btn btn-primary mb-2">Create</button>
-  <p><a href="/authors">Cancel</a></p>
-</form>
+<div class="row">
+  <form action="/authors" method="POST" class="col-md-8 mx-auto">
+    <h2>New Author</h2>
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          placeholder="Enter author name"
+        />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary" type="button">
+            Create
+          </button>
+          <button class="btn btn-danger" type="button">
+            <a href="/authors" class="text-light">Cancel</a>
+          </button>
+        </div>
+      </div>
+  </form>
+</div>

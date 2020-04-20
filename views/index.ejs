@@ -1,1 +1,19 @@
-Middle
+<div class="container">
+  <h2>Recently Added</h2>
+
+  <div class="row">
+    <% books.forEach(book => { %>
+    <div class="card col-md-4 mr-md-5 mr-xs-0 mb-4 col-xs-12">
+      <img
+        class="card-img-top w-50 mx-auto"
+        src="<%= book.coverImagePath %>"
+        alt="<%= book.title %>"
+      />
+      <div class="card-body">
+        <h5 class="card-title"><%= book.title %></h5>
+        <p class="card-text"><%= book.description %></p>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

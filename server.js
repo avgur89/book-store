@@ -8,6 +8,7 @@ const connectDB = require('./config/db');
 
 const indexRouter = require('./routes/index');
 const authorsRouter = require('./routes/authors');
+const booksRouter = require('./routes/books');
 
 // Load environment variables
 dotenv.config({ path: './config/config.env' });
@@ -39,6 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
+app.use('/books', booksRouter);
 
 const server = app.listen(
   PORT,
