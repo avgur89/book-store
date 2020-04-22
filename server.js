@@ -4,6 +4,7 @@ const expressLayouts = require('express-ejs-layouts');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
+const methodOverride = require('method-override');
 const connectDB = require('./config/db');
 
 const indexRouter = require('./routes/index');
@@ -36,6 +37,7 @@ app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // Routes
 app.use('/', indexRouter);

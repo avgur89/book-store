@@ -1,0 +1,24 @@
+<div class="row">
+  <form action="/authors/<%= author.id %>?_method=PUT" method="POST" class="col-md-8 mx-auto">
+    <h2>Edit Author</h2>
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          placeholder="Enter author name"
+          value="<%= author.name %>"
+        />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary" type="button">
+            Edit
+          </button>
+          <button class="btn btn-danger" type="button">
+            <a href="/authors/<%= author.id %>" class="text-light">Cancel</a>
+          </button>
+        </div>
+      </div>
+  </form>
+</div>

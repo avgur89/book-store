@@ -22,8 +22,10 @@
     <div class="card col-md-4 mr-md-5 mr-xs-0 mb-4 col-xs-12">
       <div class="card-body">
         <h5 class="card-title"><%= author.name %></h5>
-        <a href="/authors/edit" class="card-link">Edit</a>
-        <a href="/authors/delete" class="card-link">Delete</a>
+        <a href="/authors/<%= author.id %>" class="card-link">View</a>
+        <a href="/authors/<%= author.id %>/edit" class="card-link">Edit</a>
+        <%- include("../partials/deleteForm.ejs", { url: `/authors/${author.id}`
+        }) %>
       </div>
     </div>
     <% }) %>
